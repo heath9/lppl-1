@@ -22,8 +22,8 @@ from the base repository.
 popt
 Available from the package popt-1.10.2.3-22.el5_7.2
 
-In Ubuntu 16.04, the installation requires levmar-2.6 plus the following
-packages:
+In Ubuntu 16.04, the installation requires levmar-2.4 (not the latest version)
+plus the following packages:
 sudo apt-get install libblas-dev liblapack-dev cmake libf2c2-dev
 Additionally, edit CMakeLists.txt and change
   TARGET_LINK_LIBRARIES(lmdemo ${LIBS})

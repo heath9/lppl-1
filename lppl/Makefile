@@ -4,7 +4,7 @@ CFLAGS = -g -DDEBUG -Wall -fopenmp
 # CFLAGS = -O3 -Wall -ftree-vectorize -funroll-loops -fopenmp
 # CFLAGS = -O3 -DNDEBUG -Wall -ftree-vectorize -funroll-loops -fopenmp
 
-INC = -I . -I /home/vincenzo/Freeware/levmar-2.6 -I ../shared
+INC = -I . -I /home/vincenzo/Freeware/levmar-2.4 -I ../shared
 OBJ = args.o print.o parms.o func-lppl.o levmar.o guess.o weight.o \
       iterations.o noise.o \
       ../shared/smalloc.o ../shared/debug.o ../shared/slock.o \
@@ -12,7 +12,7 @@ OBJ = args.o print.o parms.o func-lppl.o levmar.o guess.o weight.o \
       ../shared/ssignal.o ../shared/time.o ../shared/random.o \
       ../shared/minmax.o \
       read.o correlation.o
-LIBDIR = -L /home/vincenzo/Freeware/levmar-2.6
+LIBDIR = -L /home/vincenzo/Freeware/levmar-2.4
 LIBS = -lm -lpthread -lpopt -llapack -lblas -llevmar
 
 .PHONY: all

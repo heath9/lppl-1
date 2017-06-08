@@ -40,7 +40,7 @@
 #define HERE __FILE__, __LINE__, __FUNCTION__
 void argv0_init(const char *);
 char *error_msg(const char *file, int line, const char *func, const char *msg);
-char *error_msg(const char *file, int line, const char *func);
+char *error_msg_auto(const char *file, int line, const char *func);
 void perror_fail(int, const char *);
 void die(int state, const char *fmt, ...);
 void croak(int state, const char *fmt, ...);

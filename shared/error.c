@@ -60,7 +60,7 @@ void argv0_init(const char *init_argv0) {
 char *error_msg(const char *file,  /**< File where error occurred */
                 int line,          /**< Line where error occurred */
                 const char *func,  /**< Name of function where error occurred */
-                const char *msg = "" /**< Additional error information */) {
+                const char *msg    /**< Additional error information */) {
   assert(argv0 != NULL);
   assert(msg != NULL);
 
@@ -77,7 +77,7 @@ char *error_msg(const char *file,  /**< File where error occurred */
 /** Same as error_msg but with empty error information.
     It should only be used if there is another way of generating the additional
     error message. */
-char *error_msg(const char *file, int line, const char *func) {
+char *error_msg_auto(const char *file, int line, const char *func) {
   return error_msg(file, line, func, "");
 }
 
