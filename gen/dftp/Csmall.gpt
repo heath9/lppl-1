@@ -1,0 +1,28 @@
+set terminal postscript eps enhanced color "Arial" 18
+set output "Csmalldft.eps"
+
+set logscale x
+set logscale y
+set grid x
+set grid y
+
+set yrange[1e-10:]
+set xrange [:.5]
+
+set format x "10^{%L}"
+set format y "10^{%L}"
+set key top right
+
+set label "LPPL" at .00008,1.
+set label "C=0" at .0006,1.7
+set label "m=0" at .0001,.0005
+
+n2=49998
+
+plot "baset0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "LPPL" with lines ,\
+     "base-mt0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "C=0 (power law)" with lines ,\
+     "base-Ct0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "m=0 (log periodicity)" with lines
+pause -1 "Hit Enter to continue"
+
+!epstopdf Csmalldft.eps
+pause -1 "Hit Enter to continue"

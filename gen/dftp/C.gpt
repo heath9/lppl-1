@@ -1,0 +1,29 @@
+set terminal postscript eps enhanced color "Arial" 18
+set output "Cdft.eps"
+
+set logscale x
+set logscale y
+set grid x
+set grid y
+
+set yrange[1e-8:]
+set xrange [:.5]
+
+set format x "10^{%L}"
+set format y "10^{%L}"
+set key top right box
+
+n2=49998
+
+set label "C=0.5" at .01,.02
+set label "m=0" at .001,.00005
+# set label "C=0.01" at .0001,1
+set label "C=0" at .01,.0002
+
+plot "C0.5-mt0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "C=0 (power law)" with lines ,\
+     "C0.01t0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "C=0.01" with lines ,\
+     "C0.5t0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "C=0.5" with lines ,\
+     "C0.5-Ct0-dft.plt" using ($1/n2):($2*sqrt(n2)) title "m=0 (log-periodicity)" with lines
+
+!epstopdf Cdft.eps
+pause -1 "Hit Enter to continue"
