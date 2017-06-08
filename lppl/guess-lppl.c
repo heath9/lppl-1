@@ -42,18 +42,12 @@
 #define EXPLOREMAX 2048
 
 int main(int argc, const char **argv) {
-  int state;
   unsigned int n,          /* Price vector length */
-               ny,         /* Effective price vector length */
-               k,          /* Parameter sets */
-               i, j;       /* Iterators */
+               ny;         /* Effective price vector length */
   double p[7],             /* LPPL parameters */
-         q[7],             /* Working copy of p */
          x[N],             /* Price vector */
-         *y,               /* Effective price vector */
-         rho, xmin, xmax,  /* Guess parameters */
-         m[64],            /* Possible values of m */
-         pi_over_8;
+         *y;               /* Effective price vector */
+         
   FILE *pricefile;
   levmar_t lm[EXPLOREMAX];
   lppl_env_t env;
@@ -87,15 +81,6 @@ int main(int argc, const char **argv) {
   ny = n - env.start + 1;
   vector_f(ny, y, log);
 
-  /* Possible initial values of m */
-  m[0] = 0.;
-  m[1] = 0.2;
-  m[2] = 0.4;
-  m[3] = 0.01;
-  m[4] = 0.02;
-  m[5] = 0.04;
-  m[6] = 1.;
-
   /* Set up default parameters */
   p[0] = p[1] = 1.;
   p[2] = 1000.;
@@ -105,7 +90,8 @@ int main(int argc, const char **argv) {
   p[6] = 0.;
 
   /* Read starting parameters */
-  k = read_all_parms(p, lm, EXPLOREMAX, &env);
+  /* k = */
+  read_all_parms(p, lm, EXPLOREMAX, &env);
 
   /*
   pi_over_8 = M_PI / 8.;
