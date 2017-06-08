@@ -13,7 +13,7 @@ OBJ = args.o print.o parms.o func-lppl.o levmar.o guess.o weight.o \
       ../shared/minmax.o \
       read.o correlation.o
 LIBDIR = -L /home/vincenzo/Freeware/levmar-2.4
-LIBS = -lm -lpthread -lpopt -llapack -lblas -llevmar
+LIBS = -lm -lpthread -lpopt -llapack -llevmar -lblas
 
 .PHONY: all
 all:	lppl explore-lppl guess-lppl gen-lppl

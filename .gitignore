@@ -51,5 +51,11 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Executables
+explore-lppl
+gen-lppl
+guess-lppl
+lppl
+
 # Editors
 *.swp
