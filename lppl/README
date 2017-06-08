@@ -1,0 +1,52 @@
+Operating System
+================
+lppl and related scripts have been tested on CentOS 5.
+It is likely that they would work on other versions of Linux.
+
+
+Dependencies
+============
+
+levmar-2.4 
+Available from: http://www.ics.forth.gr/~lourakis/levmar/
+Change line INC and LIBDIR in Makefile to reflect your installation directory
+
+lapack
+Available from the packages lapack-3.0-38.el5 and lapack-devel-3.0-38.el5
+from the base repository.
+
+blas
+Available from the packages blas-3.0-38.el5 and blas-devel-3.0-38.el5
+from the base repository.
+
+popt
+Available from the package popt-1.10.2.3-22.el5_7.2
+
+
+
+Compilation
+===========
+In the directory lppl, edit Makefile to change the levmar directories and 
+to set the desired CFLAGS (compilation options for debug and testing)
+$ make 
+
+Optionally, to test that the source code is correct:
+$ utest
+
+A number of executables will be created (lppl, gen-lppl, etc.). For help on 
+their usage:
+$ lppl --help
+$ gen-lppl --help
+etc.
+
+Add the directory lppl to your path.
+
+
+Scripts
+=======
+The subdirectories under gen contain Perl and gnuplot scripts to generate 
+synthetic data and plot summary statistics with gnuplot.
+
+For example, under dftp:
+$ gen.pl
+$ gnuplot C.gpt
