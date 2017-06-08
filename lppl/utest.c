@@ -277,7 +277,7 @@ void test_linear() {
          a[3][3], b[3], af[3][3], s[3], x[3], rcond, ferr, berr, work[9],
          value,
          p[7], j0[3], y[200], jv[200][3], z[200], err;
-  int state;
+  /* int state; */
   FILE *pricefile, *parmsfile;
   lppl_env_t env;
 
@@ -376,7 +376,7 @@ void test_linear() {
   CU_ASSERT_DOUBLE_EQUAL(err, 1388144.777867017, 1e-7);
 
   parmsfile = safe_fopen("gld.par", "cannot open test parameters gld.par");
-  state = read_lppl_parms(parmsfile, p, 1);
+  /* state = */ read_lppl_parms(parmsfile, p, 1);
   fclose(parmsfile);
   debug_print("\n");
   print_lppl_parms(p);
@@ -401,7 +401,7 @@ void test_linear() {
 
 
 void test_weight() {
-  int state;
+  /* int state; */
   unsigned int n;
   double p[7], y[200], j[1400], jv[200][3], err, z[200], weight;
   FILE *pricefile, *parmsfile;
@@ -461,7 +461,7 @@ void test_weight() {
 
   env.window=5000.;
   parmsfile = safe_fopen("gld.par", "cannot open test parameters gld.par");
-  state = read_lppl_parms(parmsfile, p, 1);
+  /* state = */ read_lppl_parms(parmsfile, p, 1);
   fclose(parmsfile);
   debug_print("\n");
   print_lppl_parms(p);
@@ -629,7 +629,7 @@ void test_rnd() {
 
 
 int main(int argc, const char **argv) {
-  CU_ErrorCode state;
+  /* CU_ErrorCode state; */
   CU_pSuite psuite, sys_suite; 
   CU_pTest ptest;
 
@@ -678,7 +678,7 @@ int main(int argc, const char **argv) {
               "CUnit cannot add test 11: random numbers\n");
 
   CU_basic_set_mode(CU_BRM_VERBOSE);
-  state = CU_basic_run_tests();
+  /* state = */ CU_basic_run_tests();
 
   CU_cleanup_registry();
 
